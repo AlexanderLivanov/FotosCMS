@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Какой-то Фотограф</title>
+    <title>FOTOS CMS</title>
 </head>
 
 <body>
     <header>
         <div class="title">
-            Какой-то Фотограф
+            FOTOS CMS
         </div>
     </header>
     <div class="wrap">
