@@ -1,0 +1,102 @@
+header {
+    width: 100%;
+    background-color: rgb(181, 245, 255);
+    height: 70px;
+    border-radius: 10px;
+    background: rgb(181, 245, 255) url(logo.png) no-repeat 5% 50%;
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.bottom-header-menu {
+    width: 100%;
+    background-color: rgb(181, 245, 255);
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 5px;
+    list-style: none;
+    position: relative;
+    display:inline;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu-item {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    padding: 30px;
+}
+
+.main-box-container {
+    border-color: silver;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.latest-photo-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 15px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 70%;
+    /* отступы относительно окна браузера */
+}
+
+
+.nav {
+    float: right;
+    /* обтекание логотипа */
+    margin-top: 0.82em;
+}
+
+.nav>ul>li {
+    display: inline-block;
+    /* переопределение в строчно-блочный  */
+}
+
+.nav>ul>li.active a {
+    background: #d0a5a5;
+    color: #ffffff;
+}
+
+.nav>ul>li>a {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    padding: 0.5em 1em;
+    color: #444;
+    -webkit-transition: 0.9s;
+    /* плавный переход  */
+    -moz-transition: 0.9s;
+    -o-transition: 0.9s;
+    transition: 0.9s;
+}
+
+.nav>ul>li>a:hover {
+    color: #fff;
+    background: #d0a5a5;
+}
