@@ -1,4 +1,6 @@
 <?php
+
+// use yours data
     define('USER', 'root');
     define('PASSWORD', '');
     define('HOST', 'localhost');

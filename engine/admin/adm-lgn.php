@@ -45,6 +45,6 @@ if (isset($_POST['login'])) {
         }
     }
 }
-
+// if you uncomment the line below, you will can see a password hash on the login page
 //echo password_hash($_POST['password'], PASSWORD_BCRYPT);
 ?>
