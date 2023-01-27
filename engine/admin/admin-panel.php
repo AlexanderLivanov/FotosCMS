@@ -4,5 +4,5 @@
         header('Location: adm-lgn.php');
         exit;
     } else {
-        echo 'hi';
+        require_once('../../sec/admin.php');
     }

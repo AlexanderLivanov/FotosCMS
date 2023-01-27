@@ -20,7 +20,7 @@
             <div class="nav">
                 <ul>
                     <li><a href="#">Главная</a></li>
-                    <li><a href="#">Галерея</a></li>
+                    <li><a href="gallery.php">Галерея</a></li>
                     <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
