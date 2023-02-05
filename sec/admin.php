@@ -65,3 +65,8 @@
         <?php require_once('content-3.php'); ?>
     </div>
 </div>
+
+<div class="bottom-copyright" style="font-family: 'Courier New', Courier, monospace; text-align: center;">
+    <p>FotosCMS</p>
+    <p>&copy; 2019-2023 RedCrystal Studio</p>
+</div>
