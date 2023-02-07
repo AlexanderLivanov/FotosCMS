@@ -132,6 +132,7 @@ if (isset($_FILES[$input_name])) {
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
             echo '<p>' . $success . '</p>';
+            echo '<p><a href="admin-panel.php">Назад, в админку</a></p>';
         } else {
             echo '<p>' . $error . '</p>';
         }
