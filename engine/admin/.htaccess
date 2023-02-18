@@ -1,3 +1,9 @@
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^(.*)$ $1.php
+
 Options +FollowSymLinks
 RewriteEngine On
 
@@ -38,8 +44,5 @@ RewriteEngine On
 RewriteCond %{DOCUMENT_ROOT}/engine/admin/admin-panel.php -f
 RewriteRule ^(.*)$ admin-panel.php [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteCond %{REQUEST_FILENAME}\.php -f
-
-RewriteRule ^(.*)$ $1.php
+# запрет выдачи листинга
+Options -Indexes

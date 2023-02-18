@@ -2,3 +2,40 @@
   Order allow,deny
   Deny from all
 </FilesMatch>
+
+Options +FollowSymLinks
+RewriteEngine On
+
+<IfModule mod_php5.c>
+
+  # Устанавливаем кодировку UTF-8
+  AddDefaultCharset UTF-8
+
+</IfModule>
+
+<IfModule mod_php7.c>
+
+  # Устанавливаем кодировку UTF-8
+  AddDefaultCharset UTF-8
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+  # Убираем лишние слеши на конце URL
+  RewriteCond %{THE_REQUEST} //
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$0 [R=301,L]
+
+  # Убираем index.php на конце
+  RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+  RewriteRule ^(.*)index\.php$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Убираем index.html на конце
+  RewriteCond %{REQUEST_URI} ^(.*)/index\.html$
+  RewriteRule ^(.*)index\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  ErrorDocument 404 <h1>Oops!_Page_not_found!</h1>
+
+</IfModule>
+# запрет выдачи листинга
+Options -Indexes

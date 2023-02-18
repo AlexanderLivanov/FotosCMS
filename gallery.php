@@ -43,7 +43,7 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
 <body>
   <div id="container">
     <div id="heading"> <!-- Заголовок -->
-      <h1>A cool jQuery gallery</h1>
+      <h1><a href="index">Какой-то фотограф</a> / <a href="gallery">Галерея</a></h1>
     </div>
     <div id="gallery"> <!-- это блок для изображений -->
       <?php
@@ -68,7 +68,7 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
 
           if (($i + 1) % 4 == 0) $nomargin = 'nomargin';  //последнему изображению в ряде присваевается CSS класс "nomargin"
           echo '
-  <div class="pic ' . $nomargin . '" style="background:url(' . $directory . '/' . $file . ');">
+  <div class="pic ' . $nomargin . '" style="background:url(' . $directory . '/' . $file . '); background-size: no-repeat; background-position: center; background-size: cover; width: 200px; height: auto;">
   <a href="' . $directory . '/' . $file . '" target="_blank">' . $title . '</a>
   </div>';
           $i++;
@@ -80,9 +80,12 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
       ?>
       <div class="clear"></div> <!-- using clearfix -->
     </div>
-    <div id="footer"> <!-- футер -->
+    <div id="footer" style="height: auto;">
+      <div class="bottom-copyright" style="font-family: 'Courier New', Courier, monospace; text-align: center;">
+        <p>FotosCMS &copy; 2019-2023 RedCrystal Studio</p>
+      </div>
     </div>
-  </div> <!-- закрывающий div -->
+  </div>
   <script src="js/jquery-3.6.3.min.js"></script>
   <script src="js/lightgallery.min.js"></script>
   <script src="js/gallery-script-1.0.0.js"></script>
