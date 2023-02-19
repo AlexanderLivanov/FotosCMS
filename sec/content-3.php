@@ -1,1 +1,5 @@
-this is content 3
+<?php
+
+require('createnews.php');
+
+?>

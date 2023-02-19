@@ -61,6 +61,9 @@
         </div>
     </div>
     <hr>
+    <div class="feed-container" style="text-align: center; margin: 0 auto; width: 100%; border:1px solid gray; border-radius: 15px;">
+        <?php require_once('sec/feed.php'); ?>
+    </div>
 </body>
 
 </html>
