@@ -1,11 +1,9 @@
 <html xmlns="//www.w3.org/1999/xhtml">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="login.css">
     <title>Вход</title>
 </head>
-
 <body>
     <form method="post" action="" name="signin-form">
         <div class="form-element">
@@ -19,9 +17,7 @@
         <button type="submit" name="login" value="login">Войти</button>
     </form>
 </body>
-
 </html>
-
 <?php
 session_start();
 include('../../sec/cfg.php');
