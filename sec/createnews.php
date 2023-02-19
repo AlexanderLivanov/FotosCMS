@@ -5,9 +5,14 @@ $user = 'root';
 $pass = '';
 $db_name = 'photos_engine';
 $date = date('Y-m-d H:i:s');
+
+$restricted_chars = ["'"];
+
 $link = mysqli_connect($host, $user, $pass, $db_name);
 if (isset($_POST["text-name"])) {
     //Вставляем данные, подставляя их в запрос
+    $_POST['text-name'] = str_replace($restricted_chars, ' ', $_POST["text-name"]);
+    $_POST['text-text'] = str_replace($restricted_chars, ' ', $_POST["text-text"]);
     $sql = mysqli_query($link, "INSERT INTO `posts` (`name`, `text`, `date`) VALUES ('{$_POST['text-name']}', '{$_POST['text-text']}', '$date')");
     //Если вставка прошла успешно
     if ($sql) {
