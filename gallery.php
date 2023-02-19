@@ -24,31 +24,31 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
 
 <body>
   <div id="container">
-    <div id="heading"> <!-- Заголовок -->
+    <div id="heading">
       <h1><a href="index">Какой-то фотограф</a> / <a href="gallery">Галерея</a></h1>
     </div>
-    <div id="gallery"> <!-- это блок для изображений -->
+    <div id="gallery">
       <?php
 
-      $directory = 'images';  //название папки с изображениями
-      $allowed_types = array('jpg', 'jpeg', 'gif', 'png');  //разрешеные типы изображений
+      $directory = 'images';
+      $allowed_types = array('jpg', 'jpeg', 'gif', 'png');
       $file_parts = array();
       $ext = '';
       $title = '';
       $i = 0;
       //пробуем открыть папку
       $dir_handle = @opendir($directory) or die("There is an error with your image directory!");
-      while ($file = readdir($dir_handle))  //поиск по файлам
+      while ($file = readdir($dir_handle))
       {
-        if ($file == '.' || $file == '..') continue;  //пропустить ссылки на другие папки
-        $file_parts = explode('.', $file);  //разделить имя файла и поместить его в массив
-        $ext = strtolower(array_pop($file_parts));  //последний элеменет - это расширение
+        if ($file == '.' || $file == '..') continue; 
+        $file_parts = explode('.', $file); 
+        $ext = strtolower(array_pop($file_parts)); 
         $title = implode('.', $file_parts);
         $title = htmlspecialchars($title);
         $nomargin = '';
         if (in_array($ext, $allowed_types)) {
 
-          if (($i + 1) % 4 == 0) $nomargin = 'nomargin';  //последнему изображению в ряде присваевается CSS класс "nomargin"
+          if (($i + 1) % 4 == 0) $nomargin = 'nomargin'; 
           echo '
   <div class="pic ' . $nomargin . '" style="background:url(' . $directory . '/' . $file . '); background-size: no-repeat; background-position: center; background-size: cover; width: 200px; height: auto;">
   <a href="' . $directory . '/' . $file . '" target="_blank">' . $title . '</a>
@@ -56,11 +56,10 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
           $i++;
         }
       }
-      closedir($dir_handle);  //закрыть папку
-
+      closedir($dir_handle); 
 
       ?>
-      <div class="clear"></div> <!-- using clearfix -->
+      <div class="clear"></div>
     </div>
     <div id="footer" style="height: auto;">
       <div class="bottom-copyright" style="font-family: 'Courier New', Courier, monospace; text-align: center;">
