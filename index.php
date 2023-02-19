@@ -54,15 +54,15 @@
             <a href="gallery">Галерея</a>
         </div>
         <div id="header-item">
-            <a href="">Посты</a>
+            <a href="feed">Посты</a>
         </div>
         <div id="header-item">
             <a href="">Контакты</a>
         </div>
     </div>
     <hr>
-    <div class="feed-container" style="text-align: center; margin: 0 auto; width: 100%; border:1px solid gray; border-radius: 15px;">
-        <?php require_once('sec/feed.php'); ?>
+    <div class="feed-container" style="text-align: center; margin: 0 auto; width: 80%; border-radius: 15px;">
+        <?php require_once('sec/short-feed.php'); ?>
     </div>
 </body>
 
