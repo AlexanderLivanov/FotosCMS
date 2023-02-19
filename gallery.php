@@ -7,24 +7,6 @@ $title = "";
 $i = 0;
 //пробуем открыть папку
 $dir_handle = @opendir($directory) or die("Error opening folder!");
-
-// echo '<ul id="lightgallery" class="gallery">';
-// while ($file = readdir($dir_handle))    //поиск по файлам
-// {
-//   if ($file == "." || $file == "..") continue;  //пропустить ссылки на другие папки
-//   $file_parts = explode(".", $file);          //разделить имя файла и поместить его в массив
-//   $ext = strtolower(array_pop($file_parts));   //последний элеменет - это расширение
-
-
-//   if (in_array($ext, $allowed_types)) {
-//     echo '<li>
-//             <img src="' . $directory . '/' . $file . '" class="pimg" style="width: 120%; height: auto; margin: 15px;" title="' . $file . '" ></img>
-//           </li>';
-//     $i++;
-//   }
-// }
-
-// closedir($dir_handle);  //закрыть папку
 ?>
 
 <!DOCTYPE html>
