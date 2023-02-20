@@ -19,11 +19,16 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
   <link rel="stylesheet" href="light-gallery.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/gallery-script-1.0.0.js"></script>
+  <script src="engine/js/highslide/highslide-full.js" type="text/javascript"></script>
+  <link href="engine/js/highslide/highslide.css" rel="stylesheet" property="stylesheet" />
+  <script type="text/javascript">
+    hs.graphicsDir = 'engine/js/highslide/graphics/';
+  </script>
   <title>Галерея</title>
 </head>
 
 <body>
-  <div id="container">
+  <div id="container" style="text-align: center;">
     <div id="heading">
       <h1><a href="index">Какой-то фотограф</a> / <a href="gallery">Галерея</a></h1>
     </div>
@@ -38,25 +43,26 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
       $i = 0;
       //пробуем открыть папку
       $dir_handle = @opendir($directory) or die("There is an error with your image directory!");
-      while ($file = readdir($dir_handle))
-      {
-        if ($file == '.' || $file == '..') continue; 
-        $file_parts = explode('.', $file); 
-        $ext = strtolower(array_pop($file_parts)); 
+      while ($file = readdir($dir_handle)) {
+        if ($file == '.' || $file == '..') continue;
+        $file_parts = explode('.', $file);
+        $ext = strtolower(array_pop($file_parts));
         $title = implode('.', $file_parts);
         $title = htmlspecialchars($title);
         $nomargin = '';
         if (in_array($ext, $allowed_types)) {
 
-          if (($i + 1) % 4 == 0) $nomargin = 'nomargin'; 
+          if (($i + 1) % 4 == 0) $nomargin = 'nomargin';
           echo '
-  <div class="pic ' . $nomargin . '" style="background:url(' . $directory . '/' . $file . '); background-size: no-repeat; background-position: center; background-size: cover; width: 200px; height: auto;">
-  <a href="' . $directory . '/' . $file . '" target="_blank">' . $title . '</a>
-  </div>';
+          <div style="width: 99%;">
+            <div class="pic ' . $nomargin . '" style="background:url(' . $directory . '/' . $file . '); background-size: no-repeat; background-position: center; background-size: cover; width: 200px; height: auto; margin: 0px; border-radius: 0;">
+              <a href="' . $directory . '/' . $file . '" class="highslide" onclick="return hs.expand(this)">' . $title . '</a>
+            </div>
+          </div>';
           $i++;
         }
       }
-      closedir($dir_handle); 
+      closedir($dir_handle);
 
       ?>
       <div class="clear"></div>
