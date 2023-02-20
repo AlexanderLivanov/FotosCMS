@@ -17,7 +17,7 @@ $dir_handle = @opendir($directory) or die("Error opening folder!");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="light-gallery.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/gallery-script-1.0.0.js"></script>
   <script src="engine/js/highslide/highslide-full.js" type="text/javascript"></script>
   <link href="engine/js/highslide/highslide.css" rel="stylesheet" property="stylesheet" />
