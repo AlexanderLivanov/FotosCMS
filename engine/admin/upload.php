@@ -1,7 +1,6 @@
 <?php
 $input_name = 'file';
 
-require_once('upload-thumbs-to-db.php');
 // Разрешенные расширения файлов.
 $allow = array('jpg', 'jpeg', 'png', 'gif');
 
