@@ -11,7 +11,6 @@ $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
 $date = $dt->format('d.m.Y H:i:s');
 
 //$date = date('Y-m-d H:i:s');
-
 $restricted_chars = ["'"];
 
 $link = mysqli_connect($host, $user, $pass, $db_name);
@@ -42,13 +41,14 @@ if (isset($_POST["text-name"])) {
         <textarea name="text-text" id="text-text" cols="30" rows="10" placeholder="Текст записи..."></textarea>
         <br>
         <p></p>
-        <input type="submit" value="Сохранить">
+    <input type="submit" value="Сохранить">
     </form>
 </div>
 <p></p>
 <div>
     <h3>Текущие записи на сайте:</h3>
-</div>    
+</div>
+
 </html>
 
 <?php

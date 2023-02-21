@@ -13,6 +13,7 @@
     <div class="feed-container" style="text-align: center; margin: 0 auto; width: 90%;">
         <?php require_once('sec/short-feed.php'); ?>
     </div>
+    <?php require_once('sec/footer.php'); ?>
 </body>
 
 </html>

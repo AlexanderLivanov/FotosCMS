@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap" rel="stylesheet">
-    <title>FOTOS CMS</title>
+    <title></title>
     <style>
         .header-container {
             display: flex;
@@ -39,10 +39,14 @@
             transition: 0.6s all;
         }
     </style>
-</head> 
+</head>
 
 <body>
-
+    <div style="text-align: center; width: 99%;">
+        <p>&copy; 2019-<script>
+                document.write(new Date().getFullYear())
+            </script> <u><i>будущая</i></u> RedCrystal Studio</p>
+    </div>
 </body>
 
 </html>
