@@ -4,19 +4,25 @@ $host = 'localhost';
 $user = 'root';
 $pass = '';
 $db_name = 'photos_engine';
-$date = date('Y-m-d H:i:s');
+$tz = 'Europe/Moscow';
+$timestamp = time();
+$dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+$dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+$date = $dt->format('d.m.Y H:i:s');
+
+//$date = date('Y-m-d H:i:s');
 
 $restricted_chars = ["'"];
 
 $link = mysqli_connect($host, $user, $pass, $db_name);
 if (isset($_POST["text-name"])) {
     //Вставляем данные, подставляя их в запрос
-    $_POST['text-name'] = str_replace($restricted_chars, ' ', $_POST["text-name"]);
-    $_POST['text-text'] = str_replace($restricted_chars, ' ', $_POST["text-text"]);
+    $_POST['text-name'] = str_replace($restricted_chars, '`', $_POST["text-name"]);
+    $_POST['text-text'] = str_replace($restricted_chars, '`', $_POST["text-text"]);
     $sql = mysqli_query($link, "INSERT INTO `posts` (`name`, `text`, `date`) VALUES ('{$_POST['text-name']}', '{$_POST['text-text']}', '$date')");
     //Если вставка прошла успешно
     if ($sql) {
-        echo '<p>Данные успешно добавлены в таблицу.</p>';
+        echo '<p>Запись создана</p>';
         header("Location: " . basename(__DIR__) . "/../admin-panel.php");
         die();
     } else {
@@ -49,18 +55,23 @@ if (isset($_POST["text-name"])) {
 
 $sql = mysqli_query($link, 'SELECT `id`, `name`, `date` FROM `posts`');
 while ($result = mysqli_fetch_array($sql)) {
-    echo "{$result['id']}) - [{$result['date']}] - {$result['name']} - <a href='?del={$result['id']}'>Удалить</a><br>";
+    echo "{$result['id']}) [{$result['date']}] - {$result['name']} - <a href='?del={$result['id']}'>Удалить</a> <b>/</b> <a href='?edit={$result['id']}'> Изменить</a><br>";
 }
 
 if (isset($_GET['del'])) {
     $sql = mysqli_query($link, "DELETE FROM `posts` WHERE `id` = {$_GET['del']}");
     if ($sql) {
-        echo "<p>Товар удален.</p>";
+        echo "<p>Запись удалена</p>";
         header("Location: " . basename(__DIR__) . "/../admin-panel.php");
     } else {
         echo '<p>Произошла ошибка: ' . mysqli_error($link) . '</p>';
         header("Location: " . basename(__DIR__) . "/../admin-panel.php");
     }
+}
+
+if (isset($_GET['edit'])) {
+    $_SESSION['curr_post_edit_id'] = $_GET['edit'];
+    header("Location: " . basename(__DIR__) . "/../updatenews");
 }
 
 ?>
