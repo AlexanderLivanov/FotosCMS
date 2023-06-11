@@ -1,20 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-<IfModule mod_php5.c>
-
-	# Устанавливаем кодировку UTF-8
-	AddDefaultCharset	UTF-8
-
-</IfModule>
-
-<IfModule mod_php7.c>
-
-	# Устанавливаем кодировку UTF-8
-	AddDefaultCharset	UTF-8
-
-</IfModule>
-
 <IfModule mod_rewrite.c>
 
 	# Убираем лишние слеши на конце URL
@@ -29,17 +15,11 @@ RewriteEngine On
 	RewriteCond %{REQUEST_URI} ^(.*)/index\.html$
 	RewriteRule ^(.*)index\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-	# Страницы пользовательских ошибок
-	ErrorDocument 400 errors/400.php
-	ErrorDocument 404 <h1>Oops!_Page_not_found!</h1>
-
 </IfModule>
 
-RewriteCond %{DOCUMENT_ROOT}/engine/admin/admin-panel.php -f
-RewriteRule ^(.*)$ admin-panel.php [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteCond %{REQUEST_FILENAME}\.php -f
-
-RewriteRule ^(.*)$ $1.php
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
