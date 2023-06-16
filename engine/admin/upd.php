@@ -7,6 +7,7 @@
             $host = 'localhost';
             $user = 'root';
             $pass = '';
+            global $Juila;
             global $a;
             $a = $_SESSION['curr_post_edit_id'];
             $db_name = 'photos_engine';
